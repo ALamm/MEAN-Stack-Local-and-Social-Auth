@@ -1,0 +1,89 @@
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <!--ACTIVATE THE FOLLOWING CSP POLICY ON LIVE SERVER ONLY-->
+    <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <title ng-cloak>{{TITLE}}</title>
+    <!-- styles -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                    <a class="navbar-brand logo" href="#/"><img class="logoheight" src="/images/BookTradeLogo.png" alt=""><h3 class="logoText"  ng-cloak>{{TITLE}}</h3></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="" ng-class="{active: activetab == '/'}"><a href="#/">Home</a></li>
+                        <li ng-if="logged" ng-class="{active: activetab == '/nav1'}"><a href="#/nav1">Nav 1</a></li>
+                        <li ng-if="logged" ng-class="{active: activetab == '/nav2'}"><a href="#/nav2">Nav 2</a></li>
+                        <li ng-if="logged" class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/sub1">SUB1</a></li>
+                                <li><a href="#/sub2">SUB2</a></li>
+                                <li><a href="#/sub3">SUB3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-controller="indexController">
+                        <li ng-if="!logged" ng-class="{active: activetab == '/login'}"><a href="#/login"><i></i>Login</a></li>
+                        <li ng-if="logged"><span class="username">Hello {{username}}</span></li>
+                        <li ng-controller="logoutController" ng-if="logged" ng-click='logout()'><a href="#/"><i></i>Logout</a></li>
+                        <li ng-if="logged"><a href="#/settings"><i class="fa fa-cog fa-cog-size" aria-hidden="true"></i></a></li>
+                        <li ng-if="!logged" ng-class="{active: activetab == '/register'}"><a href="#/register"><i></i>Signup</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container -->
+        </nav>
+
+    </header>
+
+    <div ng-view class="container"></div>
+
+    <footer ng-cloak>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 builtby"><p>{{TITLE}} is built by 
+                    <a href="https://www.freecodecamp.com/alamm">@alamm</a> of freecodecamp, following the instructions of 
+                    <a href="https://www.freecodecamp.com/challenges/manage-a-book-trading-club">"{{TITLE}} | Free Code Camp"</a></p>
+                    <p>Github repository:<a href="https://github.com/ALamm/tradeThis">ALamm/{{TITLE}}</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+  <!-- scripts -->
+  <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+  <script src="/app.js"></script>
+  <script src="services.js"></script>
+  <script src="controllers.js"></script>
+</body>
+

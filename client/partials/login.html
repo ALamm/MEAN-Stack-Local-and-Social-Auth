@@ -1,0 +1,41 @@
+<div class="col-md-6 authWidget">
+    <br/>
+    <h1>Login</h1>
+    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+    <form class="form" ng-submit="login()">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" ng-disabled="disabled">Login</button>
+        </div>
+    </form>
+    <div class="btn-group btn-group-justified">
+        <div ng-show="oauthTwitter" class="oauthButton">
+            <a href="/auth/twitter" class="btn btn-info">
+            <i class="fa fa-twitter fa-lg"></i><span class="oauthLabel">Twitter</span></a>
+            
+        </div>
+        <div ng-show="oauthGithub" class="oauthButton">
+            <a href="/auth/github" class="btn btn-info">
+            <i class="fa fa-github fa-lg"></i><span class="oauthLabel">Github</span></a>            
+        </div>
+        <div ng-show="oauthFacebook" class="oauthButton">
+            <a href="/auth/facebook" class="btn btn-info">
+            <i class="fa fa-facebook-square fa-lg"></i><span class="oauthLabel">Facebook</span></a>
+        </div>
+        <div ng-show="oauthGoogle" class="oauthButton">
+            <a href="/auth/google" class="btn btn-info">
+             <i class="fa fa-google-plus-square fa-lg"></i><span class="oauthLabel">Google</span></a>           
+        </div>
+        <div ng-show="oauthLinkedIn" class="oauthButton">
+            <a href="/auth/linkedin" class="btn btn-info">
+            <i class="fa fa-linkedin-square fa-lg"></i><span class="oauthLabel">LinkedIn</span></a>           
+        </div>        
+    </div>
+</div>

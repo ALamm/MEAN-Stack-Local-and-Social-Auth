@@ -1,0 +1,57 @@
+<div class="col-md-12 fullsize">
+    <div class="jumbotron"> 
+      <img src="./images/BooksLight.png" alt="" class="leadTitle">
+      <h1 class="">Title</h1>
+      <p class="tagline">Tagline here.</p>
+    </div>
+</div>
+
+<div class="col-md-12 fullsize">
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows regardless </p> 
+        <br/>
+      </div></a>
+    </div>
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows regardless </p> 
+        <br/>
+      </div></a>
+    </div>      
+  </div>
+  <div class="col-sm-4" ng-if="logged">
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows ONLY if logged in </p> 
+        <br/>
+      </div></a>
+    </div>
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows ONLY if logged in </p> 
+        <br/>
+      </div></a>
+    </div>      
+  </div>
+  <!--The following only show up if the user is NOT logged in-->
+  <div class="col-sm-4" ng-if="!logged">
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows if NOT logged in </p> 
+      </div>
+    </div></a>
+    <div class="panel panel-default">
+      <a href="#/"><div class="panel-body">
+        <h3 class="panelheadings">Panel Title</h3> 
+        <p>Panel shows if NOT logged in </p> 
+        <br/>
+      </div></a>
+    </div>      
+</div>
