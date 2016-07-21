@@ -1,5 +1,5 @@
-# Title
-MEAN stack template that incorporates passport local and social authentication
+# MEAN Stack - Passport Local and Social Authentication
+- MEAN stack template that incorporates passport local and social authentication
 - Context sensitive menu (logged in vs not)
 - Settings page for collecting additional invformation from user
 
