@@ -85,8 +85,8 @@ angular.module('myApp').controller('logoutController', ['$scope', '$rootScope', 
     }
 ]);
 
-angular.module('myApp').controller('registerController', ['$scope', '$location', '$timeout', '$route', 'AuthService',
-    function($scope, $location, $timeout, $route, AuthService) {
+angular.module('myApp').controller('registerController', ['$scope', '$rootScope', '$location', '$timeout', '$route', 'AuthService', 'CookieService',
+    function($scope, $rootScope, $location, $timeout, $route, AuthService, CookieService) {
 
         $scope.register = function() {
 
@@ -98,15 +98,15 @@ angular.module('myApp').controller('registerController', ['$scope', '$location',
             // call register from service
             AuthService.register($scope.registerForm.username, $scope.registerForm.password)
                 // handle success
-                .then(function() {
+                .then(function(res) {
                     $scope.success = true;
                     $scope.successMessage = "Registration Complete!"
                     $scope.disabled = false;
                     $scope.registerForm = {};
-                    $timeout(function() {
-                    $location.path('/login');
-                    }, 4000);
-
+                    $rootScope.logged = true;
+                    $rootScope.username = res.username;
+                    CookieService.setCookie(res.id, res.username);
+                    $location.path('/');
                 })
                 // handle error
                 .catch(function() {

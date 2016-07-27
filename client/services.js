@@ -175,7 +175,7 @@ angular.module('myApp').factory('AuthService', ['$q', '$timeout', '$http',
                 // handle success
                 .success(function(data, status) {
                     if (status === 200 && data.status) {
-                        deferred.resolve();
+                        deferred.resolve(data);
                     } else {
                         deferred.reject();
                     }
