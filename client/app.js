@@ -74,6 +74,9 @@ myApp.run(function($rootScope, $location, $route, AuthService) {
                         $location.path('/login');
                         $route.reload();
                     }
+                    if (!AuthService.isLoggedIn()) {
+                        $rootScope.userid = ''; 
+                    }                    
                 });
         });
 });

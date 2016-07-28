@@ -6,7 +6,7 @@ angular.module('myApp').controller('indexController', ['$scope', '$rootScope', '
         $rootScope.TITLE = "APP TITLE";
 
         // initialize userid.  Used to persist the userid and username (in case of page refresh) and to get/update user settings
-        var userid = CookieService.getCookieUserId();
+        $rootScope.userid = CookieService.getCookieUserId();
 
         // initialize username for use throughout the site
         $rootScope.username = CookieService.getCookieUsername();
@@ -78,6 +78,7 @@ angular.module('myApp').controller('logoutController', ['$scope', '$rootScope', 
                 .then(function() {
                     $rootScope.logged = false;
                     $rootScope.username = '';
+                    $rootScope.userid = '';
                     CookieService.setCookie('', '');
                     $location.path('/login');
                 });
@@ -104,6 +105,7 @@ angular.module('myApp').controller('registerController', ['$scope', '$rootScope'
                     $scope.disabled = false;
                     $scope.registerForm = {};
                     $rootScope.logged = true;
+                    $rootScope.userid = res.id;
                     $rootScope.username = res.username;
                     CookieService.setCookie(res.id, res.username);
                     $location.path('/');
@@ -122,7 +124,7 @@ angular.module('myApp').controller('registerController', ['$scope', '$rootScope'
 angular.module('myApp').controller('settingsController', ['$scope', '$rootScope', '$location', '$route', 'AuthService', 'CookieService',
     function($scope, $rootScope, $location, $route, AuthService, CookieService) {
 
-        var userid = CookieService.getCookieUserId();
+        $rootScope.userid = CookieService.getCookieUserId();
 
         $scope.getSettings = function() {
             // initial values
