@@ -1,5 +1,5 @@
 {
-  "name": "appname",
+  "name": "MEAN-Stack-Local-and-Social-Auth",
   "scripts": {
     "start": "node server/server.js"
   },
